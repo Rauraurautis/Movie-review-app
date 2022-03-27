@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../images/popcorn.png">
+    <link rel="stylesheet" href="../styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    <title>Movie Review App</title>
+</head>
+
+<body>
+    <script type="module" src="../scripts/userCredentials.js"></script>
+    <section>
+        <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-3 fixed-top"
+            style="background-image:linear-gradient(180deg, rgba(53,64,94,1) 0%, rgba(32,38,57,1) 0%, rgba(0,0,0,1) 64%);">
+            <div class="container d-flex justify-content-center">
+                <div class="logo d-flex gap-3 width-100 justify-content-around">
+                    <img src="../images/popcorn.png" class="img-fluid d-none d-sm-block" style="max-height: 50px;" /><a
+                        href="index.html" class="navbar-brand d-flex align-items-center gap-2 logo">Movie Review App</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu">
+                        <span class="navbar-toggler-icon align-self-end"></span>
+                    </button>
+                </div>
+
+
+                <div class="collapse navbar-collapse" id="navmenu">
+                    <ul class="navbar-nav ms-auto" id="navbar-list">
+                        
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </section>
+
+    <section class="">
+        <div class="container-fluid p-0">
+            <img src="../images/moviephoto.jpg" class="img-fluid" style="width: 100vw; height: 90vh; object-fit: cover; ">
+            <div id="quote" class="px-sm-5 quote text-light w-100 d-flex flex-column align-items-center"
+                style="position: absolute; top: 15%; height: 200px">
+
+            </div>
+        </div>
+
+    </section>
+
+
+
+    <footer class="bg-dark text-white text-center d-flex  align-items-center "
+        style="height: 10vh; background-image:linear-gradient(0deg, rgba(70,9,9,1) 0%, rgba(38,5,5,1) 0%, rgba(0,0,0,1) 64%);">
+        <div class="container">
+            <p class="lead fst-italic scroll">Copyright &copy; 2022 Movie Review App</p>
+            <a href="" class="position-absolute bottom-0 end-0 p-5">
+                <i class="bi bi-arrow-up-circle h1"></i>
+            </a>
+        </div>
+    </footer>
+
+
+
+
+
+    <script>
+
+        const quote = document.getElementById("quote")
+
+        let movieQuote = {
+            Quote: "I’m sorry, Earth is closed today. You better pack it up and get outta here",
+            Speaker: "Tony Stark",
+            Title: "Avengers: Infinity War"
+        }
+
+
+        const fetchMovieQuote = () => {
+            fetch("https://marvel-quote-api.p.rapidapi.com/", {
+                "method": "GET",
+                "headers": {
+                    "x-rapidapi-host": "marvel-quote-api.p.rapidapi.com",
+                    "x-rapidapi-key": "51f2fe90cfmsh6e483d33bf8a503p1e91c1jsn110f01e1fddb"
+                }
+            })
+                .then(response => response.json()).then(data => {
+                    if (data === undefined ) {
+                        data = movieQuote
+                    }
+                    quote.innerHTML = `<h2 id="quotetext" class="px-5 quotetext  text-light">"${data.Quote}"</h2>
+                <h2 id="quotesource" class="px-5 quotesource pt-2 text-light">${data.Speaker}, ${data.Title}</h2>`
+                })
+                .catch(err => {
+                    console.error(err)
+                    quote.innerHTML = `<h2 id="quotetext" class="px-5 quotetext  text-light">"${movieQuote.Quote}"</h2>
+                <h2 id="quotesource" class="px-5 quotesource pt-2 text-light">${movieQuote.Speaker}, ${movieQuote.Title}</h2>`
+                });
+        }
+
+       fetchMovieQuote()
+       
+    </script>
+</body>
+
+</html>
+
