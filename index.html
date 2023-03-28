@@ -32,7 +32,7 @@
 
                 <div class="collapse navbar-collapse" id="navmenu">
                     <ul class="navbar-nav ms-auto" id="navbar-list">
-                        
+
                     </ul>
                 </div>
             </div>
@@ -41,7 +41,8 @@
 
     <section class="">
         <div class="container-fluid p-0">
-            <img src="../images/moviephoto.jpg" class="img-fluid" style="width: 100vw; height: 90vh; object-fit: cover; ">
+            <img src="../images/moviephoto.jpg" class="img-fluid"
+                style="width: 100vw; height: 90vh; object-fit: cover; ">
             <div id="quote" class="px-sm-5 quote text-light w-100 d-flex flex-column align-items-center"
                 style="position: absolute; top: 15%; height: 200px">
 
@@ -86,7 +87,7 @@
                 }
             })
                 .then(response => response.json()).then(data => {
-                    if (data === undefined ) {
+                    if (data === undefined) {
                         data = movieQuote
                     }
                     quote.innerHTML = `<h2 id="quotetext" class="px-5 quotetext  text-light">"${data.Quote}"</h2>
@@ -99,10 +100,9 @@
                 });
         }
 
-       fetchMovieQuote()
-       
+        fetchMovieQuote()
+
     </script>
 </body>
 
 </html>
-
