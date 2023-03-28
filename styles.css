@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Shrikhand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital@1&display=swap');
+
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif !important;
+    background-color: black;
+}
+
+
+
+
+.moviereview {
+    cursor: pointer;
+}
+
+.nav-item:hover {
+    transform: translateY(-3%);
+    transition: 250ms ease-in-out;
+}
+
+
+
+
+
+#submitBtn:hover {
+    background: #1b2438 !important;
+}
+
+.logo {
+    font-family: 'Shrikhand', cursive !important; 
+    font-size: 35px !important;
+}
+
+.quotetext {
+    font-family: 'Lato', sans-serif;
+    animation: scrollandfade 1s;
+}
+
+@media (max-width: 480px) {
+
+    .logo {
+        font-size: 25px !important;
+    }
+
+    .moviereview {
+        height: 200px;
+    }
+   
+}
+
+@media (max-width: 350px) {
+
+    .logo {
+        font-size: 15px !important;
+    }
+
+    .moviereview {
+        height: 200px;
+    }
+   
+}
+
+.card-title:hover {
+    transform: translateY(-5%);
+    transition: 250ms ease-in-out;
+}
+
+.navbar-bg {
+    background: rgb(22,28,45);
+background: linear-gradient(281deg, rgba(22,28,45,1) 0%, rgba(12,15,24,1) 0%, rgba(0,0,0,1) 64%);
+}
+
+
+
+.quotesource {
+    font-family: 'Lato', sans-serif;
+    font-size: 1rem;
+    animation: fadeInSlow 2.5s;
+}
+
+
+
+/* review stars */
+
+.rating__result {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateY(-10px) translateX(-5px);
+    z-index: -9;
+    font: 3em Arial, Helvetica, sans-serif;
+    color: #ebebeb8e;
+    pointer-events: none;
+ }
+ 
+ .rating__star {
+    font-size: 1.3em;
+    cursor: pointer;
+    color: rgb(216, 216, 6);
+    transition: filter linear .3s;
+ }
+ 
+ .rating__star:hover {
+    filter: drop-shadow(1px 1px 4px gold);
+ }
+
+
+ /* animations */
+
+.fadeIn {
+    animation: fadeIn 1.5s;
+}
+
+
+ @keyframes scroll {
+    0% {transform: translateY(100%)}
+    100% {transform: translateY(0%)}
+ }
+
+ @keyframes scrollandfade {
+    0% {transform: translateY(100%); opacity: 0}
+    100% {transform: translateY(0%); opacity: 1}
+ }
+
+
+
+ @keyframes fadeIn {
+    0% {opacity: 0}
+    100% {opacity: 1}
+ }
+
+ @keyframes fadeInSlow {
+    0% {opacity: 0}
+    50% {opacity: 0}
+    100% {opacity: 1}
+ }
+
+ 
+ 
